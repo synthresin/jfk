@@ -40,13 +40,18 @@ Jfk::Application.routes.draw do
   #   end
 
   # Sample resource route within a namespace:
-    #resources :users
+    resources :users
 
     match '/signup', :to => 'users#new'
+    match 'companys/:id' => 'users#show'
+    match 'admin/companys/:id' => 'admin/users#show', :as => :admin_company
+    match 'admin/companys' => 'admin/users#index', :as => :admin_companies
 
     namespace :admin do  
        resources :users
     end
+
+
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.

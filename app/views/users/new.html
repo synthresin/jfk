@@ -1,1 +1,24 @@
 새 유저(업체)를 생성하는 페이지
+<h1>업체 등록</h1>
+<% if @user.errors.any? %>
+<% @user.errors.full_messages.each do |msg| %>
+<p><%= msg %></p>
+<% end %>
+<% end %>
+<%= form_for(@user) do |f| %>
+<div class="field">
+	<%= f.label :email %><br/>
+	<%= f.text_field :email %>
+</div>
+<div class="field">
+	<%= f.label :password %><br/>
+	<%= f.password_field :password %>
+</div>
+<div class="field">
+	<%= f.label :password_confirmation %><br/>
+	<%= f.password_field :password_confirmation %>
+</div>
+<div class="action">
+	<%= f.submit "Sign up" %>
+</div>
+<% end %>
