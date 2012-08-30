@@ -44,8 +44,8 @@ Jfk::Application.routes.draw do
 
     match '/signup', :to => 'users#new'
     match 'companys/:id' => 'users#show'
-    match 'admin/companys/:id' => 'admin/users#show', :as => :admin_company
-    match 'admin/companys' => 'admin/users#index', :as => :admin_companies
+    match 'admin/companies/:id' => 'admin/users#show', :as => :admin_company
+    match 'admin/companies' => 'admin/users#index', :as => :admin_companies
 
     namespace :admin do  
        resources :users
