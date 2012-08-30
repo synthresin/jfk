@@ -40,6 +40,10 @@ Jfk::Application.routes.draw do
   #   end
 
   # Sample resource route within a namespace:
+    #resources :users
+
+    match '/signup', :to => 'users#new'
+
     namespace :admin do  
        resources :users
     end
