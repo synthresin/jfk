@@ -41,8 +41,12 @@ Jfk::Application.routes.draw do
 
   # Sample resource route within a namespace:
     resources :users
+    resources :sessions, :only => [:new, :create, :destroy]
 
-    match '/signup', :to => 'users#new'
+    match '/signup',  :to => 'users#new'
+    match '/signin',  :to => 'sessions#new'
+    match '/signout', :to => 'sessions#destroy'
+
     match 'companys/:id' => 'users#show'
     match 'admin/companies/:id' => 'admin/users#show', :as => :admin_company
     match 'admin/companies' => 'admin/users#index', :as => :admin_companies
