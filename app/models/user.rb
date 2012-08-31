@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   #   self.encrypted_password = @password
   # end
   def is_admin?
-    self.admin == true
+    self.admin
   end
 
   def has_password?(submitted_password)
@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
     return nil if user.nil?
     return user if user.has_password?(submitted_password)
   end
-  
+
 private
   def encrypt_password
     self.encrypted_password = Password.create(password)

@@ -1,1 +1,7 @@
-일반인들이 보는 각 유저(업체)
+일반인들이 보는 각 유저(업체)<br/>
+<%= signed_in? %><br/>
+<% if signed_in? %>
+<%= link_to "Sign out", signout_path, :method => :delete %>
+<% else %>
+<%= link_to "Sign in", signin_path %>
+<% end %>

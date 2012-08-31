@@ -12,16 +12,13 @@ class SessionsController < ApplicationController
 			render 'new'
 		else
 			# 어드민이면 관리페이지, 업체면 자기 페이지
-			self.current_user = user
-			if self.current_user.is_admin?
-				#어드민 기본 페이지로
-			else
-
-			end
+			sign_in user
+			redirect_to user
 		end
 	end
 
 	def destroy
-		self.current_user = nil
+		sign_out
+		redirect_to request.referer
 	end
 end
