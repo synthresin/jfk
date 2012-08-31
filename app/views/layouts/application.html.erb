@@ -10,5 +10,14 @@
 
 <%= yield %>
 <%= debug(params) if Rails.env.development? %>
+<% if signed_in? %>
+you signed in 
+	<% if admin_signed_in? %>
+	with admin power
+	<% end %>
+<%= link_to "Sign out", signout_path, :method => :delete %><br/>
+<% else %>
+<%= link_to "Sign in", signin_path %><br/>
+<% end %>
 </body>
 </html>

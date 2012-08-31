@@ -28,7 +28,7 @@ module SessionsHelper
 	end
 
 	def block_admin_page
-		redirect_to	request.referer unless admin_signed_in?
+		redirect_to	signin_path unless admin_signed_in?
 	end
 
 end

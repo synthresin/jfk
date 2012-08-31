@@ -12,10 +12,11 @@ class User < ActiveRecord::Base
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
   validates :password, :presence => {:message => '비밀번호를 입력해주세요.'},
-                       :confirmation => {:message => '동일한 비밀번호를 두번 입력해주세요.'}
-                       
+                       :confirmation => {:message => '동일한 비밀번호를 두번 입력해주세요.'},
+                       :on => :create
 
-  validates :password_confirmation, :presence => true
+  validates :password_confirmation, :presence => true,
+                                    :on => :create
 
   validates :email, :format => { :with => email_regex, :message => '잘못된 이메일 형식입니다.' }, 
   			:presence => {:message => '이메일 주소를 입력해주세요.'}, 

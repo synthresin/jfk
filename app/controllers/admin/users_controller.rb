@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-
+	before_filter :block_admin_page
 	layout 'admin'
 	
 	def index 

@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 		@user =  User.new(params[:user])
 		if @user.save
 			#전시회 신청 유도 페이지로 고
+			sign_in @user
 			redirect_to @user
 		else
 			render 'new'
