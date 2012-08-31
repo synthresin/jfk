@@ -48,8 +48,12 @@ Jfk::Application.routes.draw do
     match '/signout', :to => 'sessions#destroy'
 
     match 'companys/:id' => 'users#show'
+    match 'admin/companies/new' => 'admin/users#new', :as => :new_admin_company
+    
     match 'admin/companies/:id' => 'admin/users#show', :as => :admin_company
-    match 'admin/companies' => 'admin/users#index', :as => :admin_companies
+    match 'admin/companies' => 'admin/users#create', :as => :admin_companies, :via => 'post'
+    match 'admin/companies' => 'admin/users#index', :as => :admin_companies, :via => 'get'
+
 
     namespace :admin do  
        resources :users

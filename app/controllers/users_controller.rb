@@ -3,8 +3,7 @@ class UsersController < ApplicationController
 	def index
 	end
 
-	def show
-	end
+	
 
 	def new
 		@user = User.new
@@ -19,5 +18,8 @@ class UsersController < ApplicationController
 		else
 			render 'new'
 		end
+	end
+
+	def show
 	end
 end
