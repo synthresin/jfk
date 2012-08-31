@@ -1,4 +1,6 @@
-class Admin::UsersController < Admin::AdminController
+class Admin::UsersController < ApplicationController
+
+	layout 'admin'
 	
 	def index 
 		@users = User.all
