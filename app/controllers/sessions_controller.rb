@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 			render 'new'
 		else
 			# 어드민이면 관리페이지, 업체면 자기 페이지
-			self.current_user = user
+			sign_in user
 			if self.current_user.is_admin?
 				#어드민 기본 페이지로
 			else
