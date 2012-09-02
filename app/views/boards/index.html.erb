@@ -1,0 +1,17 @@
+<table border="1">
+<tr>
+	<th>게시판 id</th>
+	<th>게시판 제목</th>
+	<th>게시판 수정</th>
+	<th>게시판 삭제</th>
+</tr>
+<% @boards.each do |b| %>
+<tr>
+	<td><%= b.id %></td>
+	<td><%= link_to b.title ,board_path(b) %></td>
+	<td><%=link_to "수정" ,edit_board_path(b)%></td>
+	<td><%=link_to "삭제" ,board_path(b), :method => :delete, :confirm => "정말로 삭제하시겠습니까?" %></td>
+</tr>
+<% end %>
+</table>
+<%= link_to "새 보드 만들기", new_board_path %>

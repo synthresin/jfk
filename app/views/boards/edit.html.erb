@@ -1,0 +1,11 @@
+<h1>각 보드를 수정</h1>
+<%= form_for @board do |f| %>
+<div class="field">
+<%= f.label :title %>
+<%= f.text_field :title %>
+</div>
+<div class="actions">
+	<%= f.submit "수정" %>
+</div>
+<% end %>
+보드 아이디 : <%= @board.id %><br/>

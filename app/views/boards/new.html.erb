@@ -1,0 +1,10 @@
+<h1>새 보드 추가</h1>
+<%= form_for @board do |f| %>
+<div class="field">
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+</div>
+<div class="actions">
+	<%= f.submit "보드 추가" %>
+</div>
+<% end %>
