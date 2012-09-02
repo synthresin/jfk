@@ -46,6 +46,7 @@ Jfk::Application.routes.draw do
     resources :boards do
       resources :posts
     end
+    
 
     match '/signup',  :to => 'users#new'
     match '/signin',  :to => 'sessions#new'
