@@ -1,3 +1,7 @@
 <h1><%= @board.title %></h1>
 <p>보드의 내용</p>
+<% if admin_signed_in? %>
+<%= link_to "보드 정보 수정", edit_board_path(@board) %><br/>
+<% end %>
+
 <%= link_to "보드 목록", boards_path %>

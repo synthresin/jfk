@@ -1,4 +1,5 @@
 class BoardsController < ApplicationController
+	before_filter :admin_user
 	def index
 		@boards = Board.all
 	end
@@ -38,6 +39,12 @@ class BoardsController < ApplicationController
 		else
 			render 'edit'
 		end
+	end
+
+	private
+
+	def admin_user
+		redirect_to(signin_path) unless admin_signed_in?
 	end
 
 
