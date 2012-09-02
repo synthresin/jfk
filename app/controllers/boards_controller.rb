@@ -1,5 +1,5 @@
 class BoardsController < ApplicationController
-	before_filter :admin_user
+	before_filter :admin_user , :except => :show
 	def index
 		@boards = Board.all
 	end
