@@ -1,7 +1,11 @@
 <h1><%= @board.title %></h1>
-<p>보드의 내용</p>
+<% if @board.posts.empty? %>
+<p>글이 없습니다.</p>
+<% else %>
+<p>글이 있습니다.</p>
+<% end %>
+<br/>
 <% if admin_signed_in? %>
-<%= link_to "새 글쓰기" %><br/>
 <%= link_to "보드 정보 수정", edit_board_path(@board) %><br/>
 <% end %>
 

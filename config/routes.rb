@@ -44,7 +44,7 @@ Jfk::Application.routes.draw do
     resources :sessions, :only => [:new, :create, :destroy]
 
     resources :boards do
-      resources :posts, :only => [:create, :destroy]
+      resources :posts
     end
 
     match '/signup',  :to => 'users#new'
