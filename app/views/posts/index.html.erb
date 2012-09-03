@@ -1,0 +1,19 @@
+각 게시판별 포스트가 나와야 하는데( 모든 포스트 말구 )
+<table border="1">
+	<tr>
+		<th>제목</th>
+		<th>삭제</td>
+	</tr>
+
+<% @posts.each do |p| %>
+<tr>
+	<td>
+		<%= link_to p.title, board_post_path(p.board, p) %>
+	</td>
+	<td>
+		<%= link_to "삭제", board_post_path(p.board,p), :method =>:delete %>
+	</td>
+</tr>	
+<% end %>
+</table>
+<%= link_to "새 게시물 쓰기", new_board_post_path %>

@@ -4,5 +4,6 @@ class Post < ActiveRecord::Base
   belongs_to :board
 
   validates :title, 	:presence => true
+  validates :content,	:presence => true
   validates :board_id, 	:presence => true
 end

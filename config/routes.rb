@@ -43,9 +43,24 @@ Jfk::Application.routes.draw do
     resources :users
     resources :sessions, :only => [:new, :create, :destroy]
 
+    resources :notices
+
     resources :boards do
       resources :posts
     end
+
+    # #routing test
+    # match '/write/:board_id', :to =>'posts#new'
+    # match '/write/:board_id', :to =>'posts#index'
+    
+    # match '/notice',        :to =>'posts#index',  :board_id => 1, :as => :notices,    :via => 'get'
+    # match '/notice/write',  :to =>'posts#new',    :board_id => 1, :as => :new_notice
+    # match '/notice',        :to =>'posts#create', :board_id => 1, :as => :notices,    :via => 'post'
+    # match '/notice/:id',    :to =>'posts#show',   :board_id => 1, :as => :notice
+
+
+
+
 
     match '/signup',  :to => 'users#new'
     match '/signin',  :to => 'sessions#new'
@@ -57,6 +72,7 @@ Jfk::Application.routes.draw do
     match 'admin/companies/:id' => 'admin/users#show', :as => :admin_company
     match 'admin/companies' => 'admin/users#create', :as => :admin_companies, :via => 'post'
     match 'admin/companies' => 'admin/users#index', :as => :admin_companies, :via => 'get'
+
 
 
     namespace :admin do  
