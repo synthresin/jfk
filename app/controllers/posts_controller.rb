@@ -24,5 +24,6 @@ class PostsController < ApplicationController
 	def destroy
 		Board.find(params[:board_id]).posts.find(params[:id]).destroy
 		redirect_to board_posts_path
+		# 지금 어떤 URL 을 통해서 불러왔는지 알수 없나?
 	end
 end

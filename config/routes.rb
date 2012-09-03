@@ -43,7 +43,8 @@ Jfk::Application.routes.draw do
     resources :users
     resources :sessions, :only => [:new, :create, :destroy]
 
-    resources :notices
+
+    resources :notice, :controller => "posts", :board_id => 1
 
     resources :boards do
       resources :posts

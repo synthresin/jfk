@@ -1,0 +1,14 @@
+공지사항의 게시물의 포스트를 쓰는 화면
+<%= form_for @post , :url => notices_path do |f| %>
+<div class="field">
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+</div>
+<div class="field">
+	<%= f.label :content %>
+	<%= f.text_field :content %>
+</div>
+<div class="actions">
+	<%= f.submit "포스트" %>
+</div>
+<% end %>
